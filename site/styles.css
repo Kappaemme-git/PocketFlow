@@ -54,13 +54,45 @@ body {
 }
 .brand img { width: 32px; height: 32px; border-radius: 9px; }
 
-.top-actions { display: inline-flex; gap: 20px; align-items: center; }
+.top-actions {
+  display: inline-flex;
+  gap: 20px;
+  align-items: center;
+}
 .ghost-link {
   color: var(--text-3); text-decoration: none;
   font-size: 14px; font-weight: 600;
   transition: color 0.15s;
 }
 .ghost-link:hover { color: var(--text); }
+
+.header-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255,255,255,0.09);
+}
+
+.icon-link {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.icon-link:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+.icon-link--coffee:hover {
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+}
 
 /* ── Eyebrow ── */
 .eyebrow {
