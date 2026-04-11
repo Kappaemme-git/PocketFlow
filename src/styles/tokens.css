@@ -1,0 +1,47 @@
+:root {
+  /* ── Surfaces ────────────────────────────── */
+  --bg:         #0e0e16;
+  --surface:    #16161f;   /* widget shell */
+  --panel:      #1c1c28;   /* inner areas  */
+  --elevated:   #242434;   /* inputs, cards */
+  --hover:      #2c2c3e;
+
+  /* ── Borders ─────────────────────────────── */
+  --border:     rgba(255, 255, 255, 0.07);
+  --border-mid: rgba(255, 255, 255, 0.11);
+
+  /* ── Text ────────────────────────────────── */
+  --text:       #eeeef4;
+  --text-2:     #8080a0;
+  --text-3:     #48486a;
+
+  /* ── Accent — VibeDesk purple ────────────── */
+  --accent:     #7c3aed;
+  --accent-h:   #6d28d9;   /* hover  */
+  --accent-l:   #a78bfa;   /* light  */
+  --accent-dim: rgba(124, 58, 237, 0.16);
+
+  /* ── Status ──────────────────────────────── */
+  --red:    #f87171;
+  --orange: #fb923c;
+  --green:  #4ade80;
+  --blue:   #60a5fa;
+
+  /* ── Shape ───────────────────────────────── */
+  --r-xl: 18px;
+  --r-lg: 12px;
+  --r-md: 9px;
+  --r-sm: 7px;
+  --r-xs: 5px;
+
+  /* ── Typography ──────────────────────────── */
+  --font: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* ── Motion ──────────────────────────────── */
+  --dur:  150ms;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; --ease: linear; }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "pocketflow",
+  "version": "0.1.0",
+  "description": "PocketFlow desktop focus widget",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:web": "python3 -m http.server 4173",
+    "build:mac": "rm -rf dist && find . -name '._*' -delete && xattr -cr . && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg"
+  },
+  "devDependencies": {
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.pocketflow.app",
+    "productName": "PocketFlow",
+    "files": [
+      "index.html",
+      "src/**/*",
+      "electron/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "build/PocketFlow.icns",
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "target": [
+        "dmg"
+      ]
+    },
+    "dmg": {
+      "artifactName": "PocketFlow-${version}.dmg"
+    }
+  }
+}

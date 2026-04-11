@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PocketFlow</title>
+  <meta name="description" content="A tiny macOS focus widget for timer, tasks, and ambient flow." />
+  <link rel="icon" type="image/svg+xml" href="../assets/pocketflow-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="PocketFlow home">
+        <img src="../assets/pocketflow-icon.svg" alt="" />
+        <span>PocketFlow</span>
+      </a>
+      <nav class="top-actions" aria-label="Primary">
+        <a class="ghost-link" href="#features">Features</a>
+        <a class="ghost-link" href="#download">Download</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PocketFlow for macOS</p>
+          <h1>A tiny focus widget that stays out of the way.</h1>
+          <p class="lede">
+            Timer, tasks, ambient music, and menu bar access in one lightweight window.
+            Built to feel immediate, calm, and always within reach.
+          </p>
+
+          <div class="hero-actions" id="download">
+            <a class="primary-cta" href="#download-panel">
+              Download for macOS
+            </a>
+            <a class="secondary-cta" href="#features">See what it includes</a>
+          </div>
+
+          <div class="micro-note">
+            <span>Apple Silicon build</span>
+            <span>Menu bar ready</span>
+            <span>Local task persistence</span>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <div class="widget-card">
+            <div class="widget-header">
+              <div class="lights">
+                <span></span><span></span>
+              </div>
+              <div class="widget-brand">
+                <p>Mini Widget</p>
+                <strong>PocketFlow</strong>
+              </div>
+              <div class="widget-icons">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="widget-body">
+              <div class="timer-panel">
+                <div class="timer-topline">
+                  <span>Timer</span>
+                  <span>25 min</span>
+                </div>
+                <div class="timer-orbit">
+                  <div class="timer-caption">Time left</div>
+                  <div class="timer-value">25:00</div>
+                </div>
+                <div class="timer-actions">
+                  <button></button>
+                  <button class="active"></button>
+                  <button></button>
+                </div>
+              </div>
+
+              <div class="widget-side">
+                <div class="mini-card">
+                  <div class="mini-head">
+                    <span>Tasks</span>
+                    <span>3</span>
+                  </div>
+                  <div class="task-row"><i class="high"></i><span>Ship the build</span></div>
+                  <div class="task-row done"><i class="low"></i><span>Refine the icon</span></div>
+                  <div class="task-row"><i class="med"></i><span>Write the landing</span></div>
+                </div>
+
+                <div class="mini-card ambient-card">
+                  <div class="mini-head">
+                    <span>Ambient</span>
+                    <span>Live</span>
+                  </div>
+                  <div class="bars">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="ambient-controls">
+                    <div class="play-dot"></div>
+                    <div class="volume-track"><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-grid" id="features">
+        <article class="feature-card feature-card--wide">
+          <p class="eyebrow">Why it works</p>
+          <h2>One compact layer for focus, planning, and atmosphere.</h2>
+          <p>
+            PocketFlow keeps the essentials visible without turning your desktop into a dashboard.
+            It sits in the menu bar, remembers your tasks, and stays lightweight enough to use all day.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <p class="eyebrow">Timer</p>
+          <h3>Custom sessions</h3>
+          <p>Set any minute length you want, start fast, and keep the timer orbit readable at a glance.</p>
+        </article>
+
+        <article class="feature-card">
+          <p class="eyebrow">Tasks</p>
+          <h3>Saved automatically</h3>
+          <p>Your task list persists between launches, so reopening the app feels instant and continuous.</p>
+        </article>
+
+        <article class="feature-card">
+          <p class="eyebrow">Ambient</p>
+          <h3>Always there</h3>
+          <p>Play the built-in ambient stream, control volume fast, and let the timer auto-start or stop it.</p>
+        </article>
+      </section>
+
+      <section class="details-grid">
+        <div class="detail-panel">
+          <p class="eyebrow">Designed for desktop calm</p>
+          <h2>Feels like a utility, not a project manager.</h2>
+          <ul class="detail-list">
+            <li>Menu bar access</li>
+            <li>Small floating widget</li>
+            <li>Keyboard shortcuts for timer and audio</li>
+            <li>Dark, clean, low-distraction UI</li>
+          </ul>
+        </div>
+
+        <div class="detail-panel detail-panel--accent" id="download-panel">
+          <p class="eyebrow">Download</p>
+          <h2>Install the current build.</h2>
+          <p>
+            The button below links to the local `.dmg` generated in this repo.
+            When you publish it, replace the same link with your hosted release URL.
+          </p>
+          <a class="primary-cta primary-cta--block" href="../dist/PocketFlow-0.1.0.dmg" download>
+            Get PocketFlow.dmg
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

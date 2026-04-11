@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="pf_bg" x1="96" y1="72" x2="432" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B1730"/>
+      <stop offset="1" stop-color="#0E0C18"/>
+    </linearGradient>
+    <linearGradient id="pf_orbit" x1="146" y1="112" x2="370" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4B5FD"/>
+      <stop offset="0.55" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <radialGradient id="pf_glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 252) rotate(90) scale(150)">
+      <stop stop-color="#A78BFA" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="512" height="512" fill="url(#pf_bg)"/>
+  <circle cx="256" cy="252" r="176" fill="url(#pf_glow)"/>
+
+  <path
+    d="M256 124
+       C337.74 118 406 186.26 406 270.5
+       C406 354.74 337.74 423 253.5 423
+       C177.16 423 115.12 366.33 102.61 292.97"
+    stroke="rgba(255,255,255,0.10)"
+    stroke-width="20"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M256 124
+       C337.74 118 406 186.26 406 270.5
+       C406 354.74 337.74 423 253.5 423
+       C177.16 423 115.12 366.33 102.61 292.97"
+    stroke="url(#pf_orbit)"
+    stroke-width="20"
+    stroke-linecap="round"
+    pathLength="100"
+    stroke-dasharray="78 22"
+  />
+
+  <circle cx="256" cy="270" r="18" fill="#C4B5FD"/>
+  <path d="M256 270V182" stroke="#F5F3FF" stroke-width="20" stroke-linecap="round"/>
+  <path d="M256 270L326 312" stroke="#A78BFA" stroke-width="18" stroke-linecap="round"/>
+</svg>
