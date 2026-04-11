@@ -450,7 +450,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding: 36px 40px;
+  padding: 28px 32px;
   border-radius: 24px;
   background:
     radial-gradient(ellipse at 0% 50%, rgba(124,58,237,0.18), transparent 52%),
