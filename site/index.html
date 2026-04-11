@@ -65,62 +65,34 @@
         </div>
 
         <div class="hero-stage" aria-hidden="true">
-          <div class="widget-card">
-            <div class="widget-header">
-              <div class="lights">
-                <span></span><span></span>
+          <div class="screenshot-stack">
+            <div class="screenshot-frame screenshot-frame--main">
+              <div class="frame-chrome">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
               </div>
-              <div class="widget-brand">
-                <p>Mini Widget</p>
-                <strong>PocketFlow</strong>
+              <img class="screenshot-img" src="./assets/screenshot-timer.png" alt="PocketFlow timer tab" onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-placeholder').style.display='grid'" />
+              <div class="screenshot-placeholder">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+                <span>Drop screenshot here<br/><small>site/assets/screenshot-timer.png</small></span>
               </div>
-              <div class="widget-icons">
-                <span></span><span></span><span></span>
+            </div>
+
+            <div class="screenshot-frame screenshot-frame--secondary">
+              <div class="frame-chrome">
+                <span class="dot dot--red"></span>
+                <span class="dot dot--yellow"></span>
+                <span class="dot dot--green"></span>
+              </div>
+              <img class="screenshot-img" src="./assets/screenshot-tasks.png" alt="PocketFlow tasks tab" onerror="this.style.display='none';this.parentElement.querySelector('.screenshot-placeholder').style.display='grid'" />
+              <div class="screenshot-placeholder">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(167,139,250,0.4)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M6 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+                <span>Drop screenshot here<br/><small>site/assets/screenshot-tasks.png</small></span>
               </div>
             </div>
 
-            <div class="widget-body">
-              <div class="timer-panel">
-                <div class="timer-topline">
-                  <span>Timer</span>
-                  <span>25 min</span>
-                </div>
-                <div class="timer-orbit">
-                  <div class="timer-value">25:00</div>
-                </div>
-                <div class="timer-actions">
-                  <button></button>
-                  <button class="active"></button>
-                  <button></button>
-                </div>
-              </div>
-
-              <div class="widget-side">
-                <div class="mini-card">
-                  <div class="mini-head">
-                    <span>Tasks</span>
-                    <span>3</span>
-                  </div>
-                  <div class="task-row"><i class="high"></i><span>Ship the build</span></div>
-                  <div class="task-row done"><i class="low"></i><span>Refine the icon</span></div>
-                  <div class="task-row"><i class="med"></i><span>Write the landing</span></div>
-                </div>
-
-                <div class="mini-card ambient-card">
-                  <div class="mini-head">
-                    <span>Ambient</span>
-                    <span>Live</span>
-                  </div>
-                  <div class="bars">
-                    <span></span><span></span><span></span><span></span>
-                  </div>
-                  <div class="ambient-controls">
-                    <div class="play-dot"></div>
-                    <div class="volume-track"><span></span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="screenshot-glow"></div>
           </div>
         </div>
       </section>
