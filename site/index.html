@@ -59,7 +59,7 @@
 
     <nav class="header-nav" aria-label="Main navigation">
       <a href="#features">Features</a>
-      <a href="#download">Download</a>
+      <a href="#install">Install</a>
     </nav>
 
     <div class="header-actions">
@@ -92,17 +92,11 @@
           Built to feel immediate, calm, and out of the way.
         </p>
 
-        <div class="hero-ctas" id="download">
-          <div class="install-block">
-            <div class="install-top">
-              <span class="install-label">Install</span>
-              <button class="copy-btn" onclick="copyInstall(this)" aria-label="Copy install command">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                <span>Copy</span>
-              </button>
-            </div>
-            <code class="install-cmd" id="install-cmd">curl -fsSL https://pocketflow.online/pf | bash</code>
-          </div>
+        <div class="hero-ctas">
+          <a class="btn-primary btn-lg" href="#install">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download free
+          </a>
           <a class="btn-ghost" href="#features">See what's inside</a>
         </div>
 
@@ -232,6 +226,55 @@
       </div>
     </section>
 
+    <!-- ── Install section ── -->
+    <section class="install-section" id="install" aria-labelledby="install-heading">
+      <div class="install-section-inner">
+        <div class="install-section-text">
+          <span class="section-label">Install</span>
+          <h2 id="install-heading">One command.<br/><em>That's it.</em></h2>
+          <p>No App Store. No account. Just run the command and PocketFlow appears in your menu bar. macOS Apple Silicon, free forever.</p>
+          <ul class="spec-list" style="margin-top:0;">
+            <li>Apple Silicon</li>
+            <li>macOS 12+</li>
+            <li>Free forever</li>
+          </ul>
+        </div>
+        <div class="install-section-terminal">
+          <div class="terminal-window">
+            <div class="terminal-chrome">
+              <div class="t-dots">
+                <span class="t-red"></span>
+                <span class="t-yellow"></span>
+                <span class="t-green"></span>
+              </div>
+              <span class="t-title">Terminal</span>
+              <button class="t-copy-btn" onclick="copyInstall(this)" aria-label="Copy command">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line prev">
+                <span class="t-prompt">~</span>
+                <span class="t-cmd-prev">cd ~/Documents</span>
+              </div>
+              <div class="terminal-line active">
+                <span class="t-prompt">~</span>
+                <code class="t-cmd" id="install-cmd">npx pocketflow-cli</code>
+                <span class="t-cursor"></span>
+              </div>
+              <div class="terminal-line output">
+                <span class="t-output-line success">✔ PocketFlow installed to /Applications</span>
+              </div>
+              <div class="terminal-line output">
+                <span class="t-output-line muted">Open PocketFlow from your menu bar.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ── Footer ── -->
@@ -242,8 +285,7 @@
 
   <script>
     function copyInstall(btn) {
-      const cmd = document.getElementById('install-cmd').textContent;
-      navigator.clipboard.writeText(cmd).then(() => {
+      navigator.clipboard.writeText('npx pocketflow-cli').then(() => {
         const span = btn.querySelector('span');
         span.textContent = 'Copied!';
         btn.classList.add('copied');

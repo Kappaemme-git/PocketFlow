@@ -280,61 +280,6 @@ body::before {
   margin-bottom: 28px;
 }
 
-/* Install block */
-.install-block {
-  width: 100%;
-  max-width: 440px;
-  border-radius: var(--r-md);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.install-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px 8px;
-  border-bottom: 1px solid var(--line-2);
-}
-
-.install-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--text-3);
-  font-size: 11px;
-  font-weight: 500;
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-}
-.copy-btn:hover { color: var(--text-2); border-color: var(--accent-l); background: rgba(124,58,237,0.08); }
-.copy-btn.copied { color: #4ade80; border-color: rgba(74,222,128,0.3); }
-
-.install-cmd {
-  display: block;
-  padding: 14px 16px;
-  font-size: 13px;
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-  color: var(--accent-ll);
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  overflow-x: auto;
-  user-select: all;
-}
 
 /* Spec pills */
 .spec-list {
@@ -706,6 +651,181 @@ body::before {
   user-select: none;
 }
 
+/* ── INSTALL SECTION ── */
+.install-section {
+  width: min(1160px, 100% - 48px);
+  margin: 0 auto;
+  padding: 72px 0 80px;
+}
+
+.install-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.install-section-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.install-section-text h2 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 4.5vw, 72px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+.install-section-text h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent-ll);
+}
+
+.install-section-text p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  font-weight: 300;
+  max-width: 28rem;
+}
+
+/* Terminal window */
+.terminal-window {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0d0e1a;
+  border: 1px solid rgba(180,160,255,0.16);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 24px 64px rgba(0,0,0,0.55),
+    0 0 48px rgba(124,58,237,0.12);
+}
+
+.terminal-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 12px 16px;
+  background: #17182a;
+  border-bottom: 1px solid rgba(180,160,255,0.10);
+  position: relative;
+}
+
+.t-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-right: 12px;
+}
+.t-red    { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; }
+.t-yellow { width: 12px; height: 12px; border-radius: 50%; background: #febc2f; }
+.t-green  { width: 12px; height: 12px; border-radius: 50%; background: #28c840; }
+
+.t-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(240,238,255,0.30);
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.t-copy-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(180,160,255,0.15);
+  background: transparent;
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.t-copy-btn:hover { color: var(--text-2); border-color: var(--accent-l); background: rgba(124,58,237,0.10); }
+.t-copy-btn.copied { color: #4ade80; border-color: rgba(74,222,128,0.3); }
+
+.terminal-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.terminal-line.prev { opacity: 0.35; }
+.terminal-line.active { opacity: 1; }
+.terminal-line.output { margin-top: 4px; }
+
+.t-prompt {
+  color: var(--accent-l);
+  font-weight: 600;
+  flex-shrink: 0;
+  user-select: none;
+}
+.t-prompt::before {
+  content: '~/';
+  opacity: 0.45;
+  font-weight: 400;
+}
+
+.t-cmd-prev {
+  color: rgba(240,238,255,0.28);
+}
+
+.t-cmd {
+  color: #c4b5fd;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  user-select: all;
+}
+
+.t-cursor {
+  display: inline-block;
+  width: 9px;
+  height: 18px;
+  background: var(--accent-l);
+  border-radius: 2px;
+  opacity: 0.85;
+  animation: blink 1.1s step-end infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 0; }
+}
+
+.t-output-line {
+  font-size: 13px;
+}
+.t-output-line.success {
+  color: #4ade80;
+}
+.t-output-line.muted {
+  color: rgba(240,238,255,0.28);
+}
+
 /* DOWNLOAD CTA */
 .download-cta {
   margin: 0 auto 56px;
@@ -807,6 +927,11 @@ body::before {
   }
   .feat-idx { margin-bottom: 2px; }
   .feat-body { max-width: 100%; }
+  .install-section-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .install-section-text h2 { font-size: clamp(36px, 10vw, 52px); }
 }
 
 @media (max-width: 520px) {
