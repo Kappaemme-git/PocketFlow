@@ -81,13 +81,9 @@
     <!-- ── Hero ── -->
     <section class="hero" aria-labelledby="hero-h1">
       <div class="hero-text">
-        <div class="version-badge">
-          <span class="badge-dot"></span>
-          v0.1.0 — Free for macOS
-        </div>
-
         <h1 id="hero-h1">
-          Focus, distilled<br/>
+          Focus,<br/>
+          distilled
           <em>into one window.</em>
         </h1>
 
@@ -97,10 +93,16 @@
         </p>
 
         <div class="hero-ctas" id="download">
-          <a class="btn-primary" href="https://github.com/Kappaemme-git/PocketFlow/releases/download/v0.1.0/PocketFlow-0.1.0.dmg">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
-            Download for macOS
-          </a>
+          <div class="install-block">
+            <div class="install-top">
+              <span class="install-label">Install</span>
+              <button class="copy-btn" onclick="copyInstall(this)" aria-label="Copy install command">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <code class="install-cmd" id="install-cmd">curl -fsSL https://pocketflow.online/get.sh | bash</code>
+          </div>
           <a class="btn-ghost" href="#features">See what's inside</a>
         </div>
 
@@ -186,72 +188,47 @@
       </div>
     </section>
 
-    <!-- ── Divider ── -->
-    <div class="section-divider" aria-hidden="true"></div>
-
-    <!-- ── Features ── -->
+    <!-- Features -->
     <section class="features" id="features" aria-labelledby="feat-heading">
       <div class="features-intro">
         <span class="section-label">What's inside</span>
         <h2 id="feat-heading">
-          Three tools.<br/><em>One tiny window.</em>
+          Three tools.
+          <em>One tiny window.</em>
         </h2>
         <p class="section-sub">Everything you need to stay focused — nothing you don't.</p>
       </div>
 
-      <div class="feat-grid">
+      <div class="feat-list">
 
-        <div class="feat-card">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Custom timer</h3>
-          <p>Set any duration in minutes. An orbit ring shows progress at a glance. Press <kbd>Space</kbd> to start or pause.</p>
+        <div class="feat-row">
+          <span class="feat-idx">01</span>
+          <h3 class="feat-title">Custom timer</h3>
+          <p class="feat-body">Set any duration in minutes. An orbit ring shows progress at a glance. Space to start, pause, or reset.</p>
+          <span class="feat-arrow">→</span>
         </div>
 
-        <div class="feat-card">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-          </div>
-          <h3>Persistent tasks</h3>
-          <p>Your list survives every relaunch. Color-coded priority dots keep it scannable at a glance.</p>
+        <div class="feat-row">
+          <span class="feat-idx">02</span>
+          <h3 class="feat-title">Persistent tasks</h3>
+          <p class="feat-body">Your list survives every relaunch. Color-coded priority dots keep it scannable in under a second.</p>
+          <span class="feat-arrow">→</span>
         </div>
 
-        <div class="feat-card">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          </div>
-          <h3>Ambient stream</h3>
-          <p>24/7 lofi radio, no setup required. Volume slider, play/pause, animated visualizer — nothing more.</p>
+        <div class="feat-row">
+          <span class="feat-idx">03</span>
+          <h3 class="feat-title">Ambient stream</h3>
+          <p class="feat-body">24/7 lofi radio, no account, no setup. Volume slider and play/pause. Nothing else.</p>
+          <span class="feat-arrow">→</span>
         </div>
 
-        <div class="feat-card">
-          <div class="feat-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3>Lives in menu bar</h3>
-          <p>Always one click away. Pin it on top or tuck it away — it never clutters your workflow.</p>
+        <div class="feat-row">
+          <span class="feat-idx">04</span>
+          <h3 class="feat-title">Menu bar</h3>
+          <p class="feat-body">Always one click away. Pin it on top when you need it, tuck it away when you don't.</p>
+          <span class="feat-arrow">→</span>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ── Download CTA ── -->
-    <section class="download-cta" id="download-panel" aria-labelledby="dl-heading">
-      <div class="dl-inner">
-        <span class="section-label">Download</span>
-        <h2 id="dl-heading">
-          Free.<br/><em>Open the .dmg and go.</em>
-        </h2>
-        <p>Current build v0.1.0 for Apple Silicon Mac.<br/>Drag to Applications. Done.</p>
-        <a class="btn-primary btn-lg" href="https://github.com/Kappaemme-git/PocketFlow/releases/download/v0.1.0/PocketFlow-0.1.0.dmg">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/></svg>
-          Get PocketFlow.dmg
-        </a>
-        <a class="dl-stripe" href="https://buy.stripe.com/28E5kDc1lagZcZO2Ra57W02" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z"/></svg>
-          Support development
-        </a>
       </div>
     </section>
 
@@ -263,6 +240,18 @@
     <span>Created by <a href="https://github.com/Kappaemme-git" target="_blank" rel="noopener">Kappaemme</a></span>
   </footer>
 
+  <script>
+    function copyInstall(btn) {
+      const cmd = document.getElementById('install-cmd').textContent;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const span = btn.querySelector('span');
+        span.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { span.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+  </script>
+
   <!-- Entrance animations -->
   <script>
     // Hero is immediately visible — show on load
@@ -270,12 +259,12 @@
       setTimeout(() => document.querySelector('.hero-text')?.classList.add('visible'), 60);
       setTimeout(() => document.querySelector('.hero-visual')?.classList.add('visible'), 180);
     });
-    // Feature cards trigger on scroll
-    const cards = document.querySelectorAll('.feat-card');
+    // Feature rows trigger on scroll
+    const rows = document.querySelectorAll('.feat-row');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    cards.forEach(el => io.observe(el));
+    }, { threshold: 0.15 });
+    rows.forEach(el => io.observe(el));
   </script>
 </body>
 </html>
