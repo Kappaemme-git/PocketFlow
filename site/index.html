@@ -67,43 +67,63 @@
         </div>
 
         <div class="hero-stage" aria-hidden="true">
-          <!-- Top: main timer screenshot -->
-          <div class="screen-wrap screen-wrap--main">
-            <div class="screen-chrome">
-              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <div class="widget-card">
+            <div class="widget-header">
+              <div class="lights">
+                <span></span><span></span>
+              </div>
+              <div class="widget-brand">
+                <p>Mini Widget</p>
+                <strong>PocketFlow</strong>
+              </div>
+              <div class="widget-icons">
+                <span></span><span></span><span></span>
+              </div>
             </div>
-            <img src="./assets/screenshot-timer.png" alt="" class="screen-img" />
-            <div class="screen-empty">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><circle cx="12" cy="12" r="9"/><polyline points="12 6 12 12 16 14"/></svg>
-              <p>screenshot-timer.png<br/><span>site/assets/</span></p>
+
+            <div class="widget-body">
+              <div class="timer-panel">
+                <div class="timer-topline">
+                  <span>Timer</span>
+                  <span>25 min</span>
+                </div>
+                <div class="timer-orbit">
+                  <div class="timer-value">25:00</div>
+                </div>
+                <div class="timer-actions">
+                  <button></button>
+                  <button class="active"></button>
+                  <button></button>
+                </div>
+              </div>
+
+              <div class="widget-side">
+                <div class="mini-card">
+                  <div class="mini-head">
+                    <span>Tasks</span>
+                    <span>3</span>
+                  </div>
+                  <div class="task-row"><i class="high"></i><span>Ship the build</span></div>
+                  <div class="task-row done"><i class="low"></i><span>Refine the icon</span></div>
+                  <div class="task-row"><i class="med"></i><span>Write the landing</span></div>
+                </div>
+
+                <div class="mini-card ambient-card">
+                  <div class="mini-head">
+                    <span>Ambient</span>
+                    <span>Live</span>
+                  </div>
+                  <div class="bars">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="ambient-controls">
+                    <div class="play-dot"></div>
+                    <div class="volume-track"><span></span></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Bottom row: tasks + music side by side -->
-          <div class="screen-row">
-            <div class="screen-wrap screen-wrap--half">
-              <div class="screen-chrome">
-                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-              </div>
-              <img src="./assets/screenshot-tasks.png" alt="" class="screen-img" />
-              <div class="screen-empty">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                <p>screenshot-tasks.png<br/><span>site/assets/</span></p>
-              </div>
-            </div>
-
-            <div class="screen-wrap screen-wrap--half">
-              <div class="screen-chrome">
-                <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-              </div>
-              <img src="./assets/screenshot-music.png" alt="" class="screen-img" />
-              <div class="screen-empty">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                <p>screenshot-music.png<br/><span>site/assets/</span></p>
-              </div>
-            </div>
-          </div>
-
           <div class="stage-glow"></div>
         </div>
       </section>
