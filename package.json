@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "start:web": "python3 -m http.server 4173",
-    "build:mac": "rm -rf dist && find . -name '._*' -delete && xattr -cr . && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg"
+    "build:mac": "rm -rf dist && find . -name '._*' -delete && xattr -cr index.html package.json electron src assets build node_modules && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac dmg zip"
   },
   "devDependencies": {
     "electron": "^41.2.0",
@@ -33,7 +33,8 @@
       "hardenedRuntime": false,
       "gatekeeperAssess": false,
       "target": [
-        "dmg"
+        "dmg",
+        "zip"
       ]
     },
     "dmg": {

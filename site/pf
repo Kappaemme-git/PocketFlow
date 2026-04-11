@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+VERSION="${PF_VERSION:-0.1.0}"
+ZIP_URL="${PF_ZIP_URL:-https://github.com/Kappaemme-git/PocketFlow/releases/download/v${VERSION}/PocketFlow-${VERSION}-arm64-mac.zip}"
+
+echo
+echo "PocketFlow installing v${VERSION}..."
+echo
+
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  echo "macOS only."
+  exit 1
+fi
+
+TMP_DIR="$(mktemp -d)"
+cleanup() {
+  rm -rf "$TMP_DIR"
+}
+trap cleanup EXIT
+
+APP_PATH="/Applications/PocketFlow.app"
+ZIP_PATH="$TMP_DIR/PocketFlow.zip"
+
+echo "Downloading..."
+curl -fL --progress-bar -o "$ZIP_PATH" "$ZIP_URL"
+
+echo "Installing to /Applications..."
+unzip -q "$ZIP_PATH" -d "$TMP_DIR"
+rm -rf "$APP_PATH"
+ditto "$TMP_DIR/PocketFlow.app" "$APP_PATH"
+xattr -dr com.apple.quarantine "$APP_PATH" 2>/dev/null || true
+
+echo
+echo "Done."
+open "$APP_PATH"
