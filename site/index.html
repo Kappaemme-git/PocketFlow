@@ -99,6 +99,7 @@
           </a>
           <a class="btn-ghost" href="#features">See what's inside</a>
         </div>
+        <p class="hero-cli-hint">or run <code onclick="copyHint(this)">npx pocketflow-cli</code></p>
 
         <ul class="spec-list" aria-label="App specifications">
           <li>Apple Silicon</li>
@@ -108,78 +109,109 @@
         </ul>
       </div>
 
-      <!-- Widget mockup -->
-      <div class="hero-visual" aria-hidden="true">
-        <div class="widget-wrap">
-          <div class="widget-card">
-
-            <div class="widget-header">
-              <div class="traffic-lights">
-                <span class="tl-red"></span>
-                <span class="tl-yellow"></span>
-              </div>
-              <div class="widget-title">
-                <span class="wt-label">Widget</span>
-                <strong class="wt-name">PocketFlow</strong>
-              </div>
-              <div class="widget-nav">
-                <span></span><span></span><span></span>
-              </div>
+      <!-- Hero interactive widget -->
+      <div class="hero-visual">
+        <div class="demo-window" id="demoWindow">
+          <div class="demo-chrome">
+            <div class="demo-dots">
+              <span class="dd-red"></span>
+              <span class="dd-yellow"></span>
+              <span class="dd-green"></span>
             </div>
-
-            <div class="widget-body">
-
-              <!-- Timer panel -->
-              <div class="w-timer">
-                <div class="w-timer-top">
-                  <span>Timer</span>
-                  <span>25 min</span>
-                </div>
-                <div class="w-orbit">
-                  <span class="w-time">25:00</span>
-                </div>
-                <div class="w-controls">
-                  <button class="wc-btn"></button>
-                  <button class="wc-btn wc-active"></button>
-                  <button class="wc-btn"></button>
-                </div>
-              </div>
-
-              <!-- Right column -->
-              <div class="w-side">
-
-                <!-- Tasks -->
-                <div class="w-card">
-                  <div class="w-card-head">
-                    <span>Tasks</span><span>3</span>
-                  </div>
-                  <div class="w-task"><i class="dot-red"></i><span>Ship the build</span></div>
-                  <div class="w-task done"><i class="dot-green"></i><span>Refine the icon</span></div>
-                  <div class="w-task"><i class="dot-orange"></i><span>Write the landing</span></div>
-                </div>
-
-                <!-- Ambient -->
-                <div class="w-card w-ambient">
-                  <div class="w-card-head">
-                    <span>Ambient</span><span>Live</span>
-                  </div>
-                  <div class="w-bars">
-                    <span></span><span></span><span></span><span></span><span></span>
-                  </div>
-                  <div class="w-player">
-                    <div class="w-play"></div>
-                    <div class="w-vol"><span></span></div>
-                  </div>
-                </div>
-
-              </div>
+            <span class="demo-app-title">PocketFlow</span>
+            <div class="demo-tabs">
+              <button class="demo-tab active" data-tab="timer" onclick="switchTab('timer',this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </button>
+              <button class="demo-tab" data-tab="tasks" onclick="switchTab('tasks',this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </button>
+              <button class="demo-tab" data-tab="music" onclick="switchTab('music',this)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </button>
             </div>
           </div>
 
-          <!-- Decorative glow behind widget -->
-          <div class="widget-glow"></div>
+          <!-- Timer panel -->
+          <div class="demo-panel" id="panel-timer">
+            <div class="dp-label">TIME LEFT</div>
+            <div class="dp-orbit-wrap">
+              <svg class="dp-ring" viewBox="0 0 140 140">
+                <circle class="dp-ring-track" cx="70" cy="70" r="58"/>
+                <circle class="dp-ring-fill" id="demoRingFill" cx="70" cy="70" r="58"/>
+              </svg>
+              <div class="dp-time" id="demoTime">25:00</div>
+            </div>
+            <div class="dp-status" id="demoStatus">Ready</div>
+            <div class="dp-controls">
+              <button class="dp-btn" id="demoPlayBtn" onclick="demoToggle()">
+                <svg id="demoPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <button class="dp-btn" onclick="demoReset()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tasks panel -->
+          <div class="demo-panel hidden" id="panel-tasks">
+            <div class="dp-label">TASKS</div>
+            <div class="dp-tasks">
+              <div class="dp-task">
+                <span class="dp-dot dp-dot-red"></span>
+                <span class="dp-task-text">Design landing page</span>
+                <button class="dp-check" onclick="toggleTask(this)"></button>
+              </div>
+              <div class="dp-task done">
+                <span class="dp-dot dp-dot-green"></span>
+                <span class="dp-task-text">Ship v0.1</span>
+                <button class="dp-check checked" onclick="toggleTask(this)"></button>
+              </div>
+              <div class="dp-task">
+                <span class="dp-dot dp-dot-orange"></span>
+                <span class="dp-task-text">Write changelog</span>
+                <button class="dp-check" onclick="toggleTask(this)"></button>
+              </div>
+              <div class="dp-task">
+                <span class="dp-dot dp-dot-red"></span>
+                <span class="dp-task-text">Record promo video</span>
+                <button class="dp-check" onclick="toggleTask(this)"></button>
+              </div>
+            </div>
+            <div class="dp-task-hint">Click ✓ to complete a task</div>
+          </div>
+
+          <!-- Music panel -->
+          <div class="demo-panel hidden" id="panel-music">
+            <div class="dp-label">AMBIENT</div>
+            <div class="dp-eq" id="demoEq">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="dp-music-info">Lofi 24/7 stream</div>
+            <div class="dp-music-controls">
+              <button class="dp-music-play" id="demoMusicPlay" onclick="toggleMusic()">
+                <svg id="demoMusicIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+              <div class="dp-vol-wrap">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                <div class="dp-vol-track"><div class="dp-vol-fill"></div></div>
+              </div>
+            </div>
+            <div class="dp-toggles">
+              <label class="dp-toggle-row">
+                <span>Focus mode</span>
+                <span class="dp-switch on"></span>
+              </label>
+              <label class="dp-toggle-row">
+                <span>Auto-play</span>
+                <span class="dp-switch"></span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
     </section>
 
     <!-- Features -->
@@ -283,7 +315,133 @@
     <span>Created by <a href="https://github.com/Kappaemme-git" target="_blank" rel="noopener">Kappaemme</a></span>
   </footer>
 
+  <!-- SVG gradient for ring -->
+  <svg class="demo-svg-defs" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#7c3aed"/>
+        <stop offset="100%" stop-color="#a855f7"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
   <script>
+    /* ── Tab switcher ── */
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.demo-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('panel-' + tab).classList.remove('hidden');
+    }
+
+    /* ── Timer demo ── */
+    const DEMO_DURATION = 25 * 60;
+    const CIRCUMFERENCE = 2 * Math.PI * 58; // 364.4
+    let demoSeconds = DEMO_DURATION;
+    let demoRunning = false;
+    let demoInterval = null;
+
+    function fmt(s) {
+      const m = Math.floor(s / 60), sec = s % 60;
+      return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
+    }
+
+    function updateRing() {
+      const pct = demoSeconds / DEMO_DURATION;
+      const offset = CIRCUMFERENCE * (1 - pct);
+      document.getElementById('demoRingFill').style.strokeDashoffset = offset;
+    }
+
+    function updateUI() {
+      document.getElementById('demoTime').textContent = fmt(demoSeconds);
+      updateRing();
+    }
+
+    function demoToggle() {
+      const playBtn = document.getElementById('demoPlayBtn');
+      const playIcon = document.getElementById('demoPlayIcon');
+      const status = document.getElementById('demoStatus');
+      if (demoRunning) {
+        clearInterval(demoInterval);
+        demoRunning = false;
+        playBtn.classList.remove('active');
+        playIcon.outerHTML = '<svg id="demoPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+        status.textContent = 'Paused';
+        status.className = 'dp-status paused';
+      } else {
+        if (demoSeconds === 0) demoSeconds = DEMO_DURATION;
+        demoRunning = true;
+        playBtn.classList.add('active');
+        document.getElementById('demoPlayBtn').innerHTML = '<svg id="demoPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+        status.textContent = 'Running';
+        status.className = 'dp-status running';
+        demoInterval = setInterval(() => {
+          if (demoSeconds > 0) {
+            demoSeconds--;
+            updateUI();
+          } else {
+            clearInterval(demoInterval);
+            demoRunning = false;
+            document.getElementById('demoStatus').textContent = 'Done!';
+            document.getElementById('demoStatus').className = 'dp-status';
+          }
+        }, 1000);
+      }
+    }
+
+    function demoReset() {
+      clearInterval(demoInterval);
+      demoRunning = false;
+      demoSeconds = DEMO_DURATION;
+      updateUI();
+      document.getElementById('demoStatus').textContent = 'Ready';
+      document.getElementById('demoStatus').className = 'dp-status';
+      const btn = document.getElementById('demoPlayBtn');
+      btn.classList.remove('active');
+      btn.innerHTML = '<svg id="demoPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+    }
+
+    /* ── Task toggle ── */
+    function toggleTask(btn) {
+      const task = btn.closest('.dp-task');
+      const isChecked = btn.classList.contains('checked');
+      if (isChecked) {
+        btn.classList.remove('checked');
+        task.classList.remove('done');
+      } else {
+        btn.classList.add('checked');
+        task.classList.add('done');
+      }
+    }
+
+    /* ── Music demo ── */
+    let musicPlaying = false;
+    function toggleMusic() {
+      musicPlaying = !musicPlaying;
+      const eq = document.getElementById('demoEq');
+      const icon = document.getElementById('demoMusicIcon');
+      if (musicPlaying) {
+        eq.classList.add('playing');
+        icon.outerHTML = '<svg id="demoMusicIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+      } else {
+        eq.classList.remove('playing');
+        icon.outerHTML = '<svg id="demoMusicIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+      }
+    }
+
+    /* Init ring */
+    updateRing();
+  </script>
+
+  <script>
+    function copyHint(el) {
+      navigator.clipboard.writeText('npx pocketflow-cli').then(() => {
+        const orig = el.textContent;
+        el.textContent = 'copied!';
+        setTimeout(() => { el.textContent = orig; }, 1800);
+      });
+    }
+
     function copyInstall(btn) {
       navigator.clipboard.writeText('npx pocketflow-cli').then(() => {
         const span = btn.querySelector('span');
