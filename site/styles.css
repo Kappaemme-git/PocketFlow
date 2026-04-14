@@ -280,21 +280,17 @@ body::before {
   margin-bottom: 28px;
 }
 
+.download-proof {
+  font-size: 13px;
+  color: var(--text-2);
+  margin: -4px 0 18px;
+  letter-spacing: -0.01em;
+}
 
-/* Hero CLI hint */
-.hero-cli-hint {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.28);
-  margin-top: -16px;
-  margin-bottom: 4px;
+.download-proof strong {
+  color: var(--text);
+  font-weight: 600;
 }
-.hero-cli-hint code {
-  font-family: 'SF Mono', ui-monospace, monospace;
-  color: rgba(167,139,250,0.7);
-  cursor: pointer;
-  transition: color 0.18s;
-}
-.hero-cli-hint code:hover { color: #a78bfa; }
 
 /* Spec pills */
 .spec-list {

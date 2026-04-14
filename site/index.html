@@ -99,7 +99,9 @@
           </a>
           <a class="btn-ghost" href="#features">See what's inside</a>
         </div>
-        <p class="hero-cli-hint">or run <code onclick="copyHint(this)">npx pocketflow-cli</code></p>
+        <p class="download-proof" id="download-proof" hidden>
+          Already downloaded by <strong id="download-count">14</strong> people
+        </p>
 
         <ul class="spec-list" aria-label="App specifications">
           <li>Apple Silicon</li>
@@ -434,13 +436,8 @@
   </script>
 
   <script>
-    function copyHint(el) {
-      navigator.clipboard.writeText('npx pocketflow-cli').then(() => {
-        const orig = el.textContent;
-        el.textContent = 'copied!';
-        setTimeout(() => { el.textContent = orig; }, 1800);
-      });
-    }
+    const DOWNLOAD_RELEASE_TAG = 'v0.1.0';
+    const DOWNLOAD_ASSET_NAME = 'PocketFlow-0.1.0.dmg';
 
     function copyInstall(btn) {
       navigator.clipboard.writeText('npx pocketflow-cli').then(() => {
@@ -450,6 +447,25 @@
         setTimeout(() => { span.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
       });
     }
+
+    async function loadDownloadCount() {
+      const proof = document.getElementById('download-proof');
+      const countEl = document.getElementById('download-count');
+      if (!proof || !countEl) return;
+
+      try {
+        const res = await fetch(`https://api.github.com/repos/Kappaemme-git/PocketFlow/releases/tags/${DOWNLOAD_RELEASE_TAG}`);
+        if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+        const data = await res.json();
+        const asset = data.assets?.find((item) => item.name === DOWNLOAD_ASSET_NAME);
+        if (!asset || typeof asset.download_count !== 'number') throw new Error('Missing asset count');
+
+        countEl.textContent = String(asset.download_count);
+        proof.hidden = false;
+      } catch (err) {
+        proof.hidden = false;
+      }
+    }
   </script>
 
   <!-- Entrance animations -->
@@ -458,6 +474,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => document.querySelector('.hero-text')?.classList.add('visible'), 60);
       setTimeout(() => document.querySelector('.hero-visual')?.classList.add('visible'), 180);
+      loadDownloadCount();
     });
     // Feature rows trigger on scroll
     const rows = document.querySelectorAll('.feat-row');
